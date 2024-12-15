@@ -8,8 +8,8 @@ import java.util.Stack;
 
 public class UsingLists {
     public static void main(String[] args) {
-//        factoryMethods();
-        arrayList();
+        factoryMethods();
+//        arrayList();
 //        stack();
 //        linkedList();
     }

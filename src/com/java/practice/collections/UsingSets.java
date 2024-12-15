@@ -11,8 +11,8 @@ import java.util.TreeSet;
 public class UsingSets {
     public static void main(String[] args) {
 //        factoryMethods();
-//        treeSet();
         hashSet();
+//        treeSet();
 //        linkedHashSet();
     }
     public static void factoryMethods(){

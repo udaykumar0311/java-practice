@@ -15,7 +15,7 @@ public class UsingQueues {
 //        linkedListQueue();
 //        arrayDeque();
 //        priorityQueueNaturalOrdering();
-        priorityQueueDifferentOrdering();
+//        priorityQueueDifferentOrdering();
     }
     public static void linkedListQueue(){
         // A FIFO queue (First In First Out).

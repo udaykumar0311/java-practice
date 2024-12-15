@@ -7,25 +7,27 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static java.lang.StringTemplate.STR;
+
 public class StreamIntQuest {
 
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(0, 4,66, 1,72, 27, 224, 66, 3,25, 2, 46);
-        //printSumOfAllNum(list);
-        //printAverageOfAllNum(list);
-        //printSquareFilterAverage(list);
-        //printEvenAndOddNum(list);
-        //printNumStartsWith2(list);
+//        printSumOfAllNum(list);
+//        printAverageOfAllNum(list);
+//        printSquareFilterAverage(list);
+        printEvenAndOddNum(list);
+//        printNumStartsWith2(list);
         //using set.add()
-        //printDuplicateNumbers(list);
+//        printDuplicateNumbers(list);
         //System.out.println(" Is prime num : " + isPrimeByJava8(5));
-        //printMaxAndMinNum(list);
+//        printMaxAndMinNum(list);
         //printSortedList(list);
-        //printSecondHighLow(list);
+//        printSecondHighLow(list);
         //printIsArmstrongNumberJava8(9800817);//1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208, 9474, 54748, 92727, 93084, 548834, 1741725, 4210818, 9800817
         //printIsArmstrongNumber(371);
 //        printIsPalindrome(16461);
-        printDuplicateInString("aabbrrwwgtwfsghs");
+//        printDuplicateInString("aabbrrwwgtwfsghs");
         //printFibonacciSeries(9);
     }
     //14.The Fibonacci series is the sequence of numbers, where every number is the sum of the preceding two numbers.
@@ -120,7 +122,7 @@ public class StreamIntQuest {
         list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream().filter(entry -> entry.getValue()>1).map(Map.Entry::getKey ).forEach(System.out::println);
 
         //Using Collections.frequency():
-//        list.stream().filter(e->Collections.frequency(list,e)>1).collect(Collectors.toSet()).forEach(System.out::println);
+        list.stream().filter(e->Collections.frequency(list,e)>1).collect(Collectors.toSet()).forEach(System.out::println);
     }
     //5.Print numbers starting with 2
     private static void printNumStartsWith2(List<Integer> list) {
@@ -134,6 +136,14 @@ public class StreamIntQuest {
         System.out.println(STR."Even numbers: \{evenNumbers}");
         List<Integer> oddumbers = list.stream().filter(ele -> ele%2!=0).collect(Collectors.toList());
         System.out.println(STR."Odd numbers: \{oddumbers}");
+        //------//
+        int[] nums = {10,20,11,14,15};
+        Map<Boolean,List<Integer>> map = Arrays.stream(nums).boxed().collect(Collectors.partitioningBy(num -> num % 2 == 0));
+        System.out.println(STR."Map of EVEN numbers: \{map}");
+        //------//
+        Map<Boolean,List<Integer>> map2 = list.stream().collect(Collectors.partitioningBy(num -> num%2==0));
+        System.out.println(STR."Map of EVEN & ODD numbers : \{map2}");
+
     }
 
     //3.Print square of each number, filter numbers greater than 100 and print average of numbers
